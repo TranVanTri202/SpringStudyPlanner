@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layoutUser/layoutuser}">
+<head>
+</head>
+<body>	
+		<div layout:fragment="header">
+		<div class="wrapper" >
+		<header class="header" >
+			<div class="container w-75">
+				<div class="header-content">
+					<div class="logo">
+						<a title=""> <img
+							src="/Content/AConfig/images/logon.png"
+							style="max-height: 40px !important;">
+						</a>
+					</div>
+					<div class="search-bar">
+						
+					</div>
+					<div class="menu-btn">
+						<a href="#" title=""><i class="fa fa-bars"></i></a>
+					</div>
+					
+					<div class="menu-top">
+						<ul>
+						
+
+							<li><a id="spanBell" th:href="@{/sinhvien/tintuc}">
+								
+									<div >
+										<i class="far fa-bell"></i>&nbsp&nbsp Tin tức
+									</div>
+							</a></li>
+							<li><a th:href="@{/sinhvien/logout}"><span><i class="bi bi-box-arrow-right me-1"></i></span> Đăng xuất</a></li>
+						</ul>						
+					</div>
+				</div>
+			</div>
+		</header>
+	</div>
+	</div>
+</body>
+</html>

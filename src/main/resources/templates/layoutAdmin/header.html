@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/layout}">
+<head>
+</head>
+<body>
+	<nav layout:fragment="header" 
+		class="navbar navbar-inverse navbar-fixed-top navbar-dark bg-info shadow fixed-top" >
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand ms-3" href="#">Quản trị viên</a>
+	<i class="bi bi-person-workspace text-white fs-3"></i>
+			</div>
+			<form method="post" th:action="@{/logout}">
+				<a th:href="@{/sinhvien/login}" class=" fa-solid  btn btn-link pull-right navbar-brand" type="submit"> 
+			Đăng xuất <i class="bi bi-box-arrow-right"></i></a>
+			</form>
+		</div>
+	</nav>
+</body>
+</html>

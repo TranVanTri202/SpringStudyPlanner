@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.w3.org/1999/xhtml"
+	layout:decorate="~{layoutUser/layoutuser}">
+<head>
+<title>Đổi mật khẩu</title>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+<body>
+	<div class="box-df" layout:fragment="content">
+		<div class="container">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h2 class="text-center fs-5">Thay đổi mật khẩu cá nhân</h2>
+				</div>
+				<form th:action="@{/sinhvien/doimatkhau}" method="post">
+					<div class="form-group mt-4">
+						<label for="current-pass">Mật khẩu hiện tại</label>
+						<input required="required" type="password" class="form-control" name="pass" id="current-pass">
+						<p th:text="${error}" class="text-danger"></p>
+					</div>
+					<div class="form-group mt-2">
+						<label for="new-pass">Mật khẩu mới</label>
+						<input required="required" type="password" class="form-control" name="newPass" id="new-pass">
+					</div>
+					<div class="form-group mt-2">
+						<label for="new-pass2">Nhập lại khẩu mới</label>
+						<input required="required" type="password" class="form-control" name="newPass2" id="new-pass2">
+						<p th:text="${error2}" class="text-danger"></p>
+					</div>
+					<button type="submit" class="btn btn-primary mt-3">Thay đổi</button>
+				</form>
+					<p th:text="${error3}" class="text-success mt-3"></p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

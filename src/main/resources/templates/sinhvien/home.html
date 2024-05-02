@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.w3.org/1999/xhtml"
+	layout:decorate="~{layoutUser/layoutuser}">
+<head>
+<title>Thông tin sinh viên</title>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+<body>
+	
+						<div class="box-df" layout:fragment="content">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="portlet">									
+										<div class="row">
+												<div class="col-md-6">
+													<div class="profile-userpic">
+														<img th:src="@{/img/sinhvien/} + ${sinhVien.anh}"
+															style="width: 170px; height: 170px; padding: 10px; margin: 15px;">
+													</div>
+												</div>
+												<div class="col-md-6 pt-5">
+													<div class="form-group">
+														<div class="control-label mt-3">
+															<span lang="thongtinsinhvien-mssv">MSSV</span>: <b th:text="${sinhVien.maSV}"></b>
+														</div>
+													</div>
+													<div class="form-group">
+														<div class="control-label mt-3">
+															<span lang="thongtinsinhvien-hovaten">Họ tên</span>: <b th:text="${sinhVien.tenSV}"></b>
+														</div>
+													</div>
+													<div class="form-group">
+														<div class="control-label mt-3">
+															<span lang="thongtinsinhvien-gioitinh">Giới tính</span>:
+															<b th:text="${sinhVien.gioiTinh}"></b>
+														</div>
+														<div class="clearfix"></div>
+													</div>
+												</div>
+											</div>
+									</div>
+								</div>
+								<div class="col-md-6"> 
+									<div class="portlet">
+										<div class="portlet-title">
+											<div class="caption">
+												<span class="caption-subject  bold"
+													lang="thongtinsinhvien-thongtinhocvan">Thông tin học
+													vấn</span>
+											</div>
+										</div>
+										<div class="portlet-body">
+											<div class="col-md-12">
+												<form class="form-horizontal">
+													<div class="form-body">
+														<div class="form-group">
+															<label class="col-md-5"><span
+																lang="thongtinsinhvien-mahoso mt-2">Mã hồ sơ</span>: <span
+																class="bold">20-0-00322</span></label> <label class="col-md-6 mt-2 ms-4"><span
+																lang="thongtinsinhvien-ngayvaotruong">Ngày vào
+																	trường</span>: <span class="bold"></span></label>
+
+														</div>
+														<div class="form-group">
+															<label class="col-md-5 mt-3"><span lang="thongtinsinhvien-lophoc">Lớp học:</span>
+<th:block th:if="${sinhVien.lop != null}">
+    <span class="bold" th:text="${sinhVien.lop.maLop}"></span>
+</th:block></label> <label class="col-md-6 mt-3 ms-4"><span
+																lang="thongtinsinhvien-coso">Cơ sở</span>: <span
+																class="bold">SAIGON TECH</span></label>
+														</div>
+														<div class="form-group">
+															<label class="col-md-5 mt-3"><span
+																lang="thongtinsinhvien-bacdaotao">Bậc đào tạo</span>: <span
+																class="bold">Cao đẳng</span></label> <label class="col-md-6 mt-3 ms-4"><span
+																lang="thongtinsinhvien-loaidaotao">Loại hình đào
+																	tạo</span>: <span class="bold">ch&#237;nh quy</span></label>
+														</div>
+														<div class="form-group">
+															<label class="col-md-5"><span
+																lang="thongtinsinhvien-khoa">Khoa</span>: <span
+																class="bold">IT</span></label> <label class="col-md-6 mt-3 ms-4"><span
+																lang="thongtinsinhvien-nganh">Ngành</span>: <span
+																class="bold"></span></label>
+														</div>
+														<div class="form-group">
+															<label class="col-md-5 mt-3"><span
+																lang="thongtinsinhvien-khoahoc">Khóa học</span>: <span
+																class="bold" th:text="${sinhVien.nienKhoa}"></span></label>
+														</div>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="clearfix"></div>
+								<div class="col-md-12">
+									<div class="portlet">
+										<div class="portlet portlet-title light">
+											<div class="caption">
+												<span class="caption-subject bold"
+													lang="thongtinsinhvien-thongtincanhan">Thông tin cá
+													nhân</span>
+											</div>
+											<div class="clearfix"></div>
+										</div>
+										<div class="clearfix"></div>
+										<div class="portlet portlet-body light">
+											<div class="form-horizontal">
+												<div class="form-body">
+													<div class="col-md-12">
+														<div class="form-group">
+															<label class="col-md-4 col-xs-12"><span
+																lang="thongtinsinhvien-ngaysinh">Ngày sinh</span>: <span th:text="${#dates.format(sinhVien.ngaySinh,'dd/MM/yyyy')}"
+																class="bold"></span></label> <label
+																class="col-md-2 col-xs-12"><span
+																lang="thongtinsinhvien-dantoc">Dân tộc</span>: <span th:text="${sinhVien.danToc}"
+																class="bold"></span></label> <label
+																class="col-md-3 col-xs-12"><span
+																lang="thongtinsinhvien-tongiao">Tôn giáo</span>: <span
+																class="bold">Không</span></label> <label
+																class="col-md-2 col-xs-12"><span
+																lang="thongtinsinhvien-khuvuc">Khu vực</span>: <span
+																class="bold"></span></label>
+														</div>
+														<div class="form-group">
+															<label class="col-md-4 col-xs-12 mt-3"><span
+																lang="thongtinsinhvien-socmnd">Số CMND</span>: <span th:text="${sinhVien.cmnd}"
+																class="bold"></span></label> <label class="col-md-2 col-xs-12"><span
+																lang="thongtinsinhvien-ngaycap">Ngày cấp</span>: <span
+																class="bold"></span></label> <label class="col-md-5 col-xs-12"><span
+																lang="thongtinsinhvien-noicap">Nơi cấp</span>: <span
+																class="bold"></span></label>
+														</div>
+														
+														<div class="form-group">
+															<label class="col-md-4 col-xs-6 mt-3"><span
+																lang="thongtinsinhvien-sdt">Điện thoại</span>: <span th:text="${sinhVien.soDienthoai}"
+																class="bold"></span></label> <label class="col-md-7 col-xs-6"><span
+																lang="thongtinsinhvien-email">Email</span>: <span th:text="${sinhVien.email}"
+																class="bold"></span></label>
+														</div>
+														<div class="form-group">
+															<label class="col-md-12 col-xs-12 mt-3"><span
+																lang="thongtinsinhvien-diachilienlac">Địa chỉ
+																	liên hệ</span>: <span th:text="${sinhVien.diaChi}" class="bold"></span></label>
+														</div>														
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-md-12">
+									<div class="portlet">
+										<div class="portlet portlet-title light">
+											<div class="caption">
+												<span class="caption-subject  bold"
+													lang="thongtinsinhvien-qhgd">Quan hệ gia đình</span>
+											</div>
+											<div class="clearfix"></div>
+										</div>
+										<div class="portlet portlet-body light">
+											<div class="col-md-12">
+												<div class="form-horizontal">
+													<div class="form-body">
+														<div class="border-2 border-Secondary border-bottom pb-2">
+															<div class="form-group">
+																<label class="col-md-4 col-xs-12"><span
+																	lang="thongtinsinhvien-gdhotencha">Họ tên Cha</span>: <span
+																	class="bold"> </span></label> <label class="col-md-4 col-xs-12"><span
+																	lang="thongtinsinhvien-gdnamsinh">Năm sinh</span>: <span
+																	class="bold"> </span></label> <label class="col-md-3 col-xs-12"><span
+																	lang="thongtinsinhvien-gdnghenghiep">Nghề nghiệp</span>:
+																	<span class="bold"> </span></label>
+															</div>
+															<div class="form-group mt-3">
+																<label class="col-md-4 col-xs-12"><span
+																	lang="thongtinsinhvien-quoctich">Quốc tịch</span>: <span
+																	class="bold"> </span></label> <label class="col-md-4 col-xs-12"><span
+																	lang="thongtinsinhvien-dantoc">Dân tộc</span>: <span
+																	class="bold"> </span></label> <label class="col-md-3 col-xs-12"><span
+																	lang="thongtinsinhvien-tongiao">Tôn giáo</span>: <span
+																	class="bold"> </span></label>
+															</div>
+															<div class="form-group mt-3">
+																<label class="col-md-4 col-xs-12"><span
+																	lang="thongtinsinhvien-coquan">Cơ quan công tác</span>:
+																	<span class="bold"> </span></label> <label
+																	class="col-md-4 col-xs-12"><span
+																	lang="thongtinsinhvien-chucvu">Chức vụ</span>: <span
+																	class="bold"> </span></label> <label class="col-md-3 col-xs-12">
+																	<span lang="thongtinsinhvien-gdsdt">Số điện
+																		thoại</span>: <span class="bold"> </span>
+																</label>
+															</div>
+															<div class="form-group mt-3">
+																<label class="col-md-12 col-xs-12"><span
+																	lang="thongtinsinhvien-hokhau">Hộ khẩu</span>: <span
+																	class="bold"> </span></label>
+															</div>
+															<div class="form-group mt-3">
+																<label class="col-md-12 col-xs-12"><span
+																	lang="thongtinsinhvien-diachihiennay">Chỗ ở hiện
+																		nay</span>: <span class="bold"> </span></label>
+															</div>
+														</div>
+														<div class="border-2 border-Secondary border-bottom py-2">
+															<div class="form-group mt-3">
+																<label class="col-md-4 col-xs-12"><span
+																	lang="thongtinsinhvien-gdhotenme">Họ tên Mẹ</span>: <span
+																	class="bold"> </span></label> <label class="col-md-4 col-xs-12"><span
+																	lang="thongtinsinhvien-gdnamsinh">Năm sinh</span>: <span
+																	class="bold"> </span></label> <label class="col-md-3 col-xs-12"><span
+																	lang="thongtinsinhvien-gdnghenghiep">Nghề nghiệp</span>:
+																	<span class="bold"> </span></label>
+															</div>
+															<div class="form-group mt-3">
+																<label class="col-md-4 col-xs-12"><span
+																	lang="thongtinsinhvien-quoctich">Quốc tịch</span>: <span
+																	class="bold"> </span></label> <label class="col-md-4 col-xs-12"><span
+																	lang="thongtinsinhvien-dantoc">Dân tộc</span>: <span
+																	class="bold"> </span></label> <label class="col-md-3 col-xs-12"><span
+																	lang="thongtinsinhvien-tongiao">Tôn giáo</span>: <span
+																	class="bold"> </span></label>
+															</div>
+															<div class="form-group mt-3">
+																<label class="col-md-4 col-xs-12"><span
+																	lang="thongtinsinhvien-coquan">Cơ quan công tác</span>:
+																	<span class="bold"> </span></label> <label
+																	class="col-md-4 col-xs-12"><span
+																	lang="thongtinsinhvien-chucvu">Chức vụ</span>: <span
+																	class="bold"> </span></label> <label class="col-md-3 col-xs-12">
+																	<span lang="thongtinsinhvien-gdsdt">Số điện
+																		thoại</span>: <span class="bold"> </span>
+																</label>
+															</div>
+															<div class="form-group mt-3">
+																<label class="col-md-12 col-xs-12"><span
+																	lang="thongtinsinhvien-hokhau">Hộ khẩu</span>: <span
+																	class="bold"> </span></label>
+															</div>
+															<div class="form-group mt-3">
+																<label class="col-md-12 col-xs-12"><span
+																	lang="thongtinsinhvien-diachihiennay">Chỗ ở hiện
+																		nay</span>: <span class="bold"> </span></label>
+															</div>
+														</div>														
+													</div>
+												</div>
+											</div>
+											<div class="clearfix"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+								<a th:href="@{/sinhvien/doithongtin}" class="btn btn-primary custom-btn" th:classappend="${not sinhVien.allow ? 'disabled' : ''}">Thay đổi thông tin cá nhân</a>
+						</div>
+					
+
+</body>
+</html>

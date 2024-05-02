@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layoutAdmin/layout}">
+<head>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+<link rel="stylesheet" type="text/css" 
+	th:href="@{/css/admin/index.css}" />
+		<title>Chỉnh sửa thông tin</title>
+</head>
+<body>
+	<div layout:fragment="content">
+	<div></div>
+		<div class="container shadow mt-4">
+		<form  th:action="@{/sinhvien/edit}" th:object="${sinhvien}" method="post">
+        <h4 class="text-info"> Chỉnh sửa thông tin sinh viên</h4>
+        	<div class="row">
+        	<input th:field="*{id}" type="hidden">
+        		<div class="col-md-4">
+        			  <div class="form-floating mb-3">
+                <input type="text" th:field="*{maSV}" class="form-control"    id="floatingInput" required>
+                <label for="floatingInput">Mã sinh viên</label>
+           			 </div>
+           		 </div>
+           		 	<div class="col-md-4">
+        			  <div class="form-floating mb-3">
+                <input type="text" th:field="*{tenSV}" class="form-control"    id="floatingInput" required>
+                <label for="floatingInput">Tên sinh viên</label>
+           			 </div>
+           		 </div>
+           		 	<div class="col-md-4">
+        			  <div class="form-floating mb-3">
+              <select th:field="*{gioiTinh}" class="form-control" id="gioiTinhSelect" name="gioitinh">
+        <option value="Nam" th:selected="${sinhvien.gioiTinh == 'Nam'}">Nam</option>
+        <option value="Nữ" th:selected="${sinhvien.gioiTinh == 'Nữ'}">Nữ</option>
+    </select>    
+				        <label for="gioiTinhSelect">Giới Tính</label>
+           			 </div>
+           		 </div>
+           		 	<div class="col-md-4">
+        			  <div class="form-floating mb-3">
+                <input type="text" th:field="*{ngaySinh}" class="form-control"    id="floatingInput" required>
+                <label for="floatingInput">Ngày sinh (D/M/Y)</label>
+           			 </div>
+           		 </div>
+           		 	<div class="col-md-4">
+        			  <div class="form-floating mb-3">
+                <input type="email" th:field="*{email}" class="form-control"    id="floatingInput" required>
+                <label for="floatingInput">Email</label>
+           			 </div>
+           		 </div>
+           		 	<div class="col-md-4">
+        			  <div class="form-floating mb-3">
+                <input type="text" th:field="*{soDienthoai}" class="form-control"    id="floatingInput" required>
+                <label for="floatingInput">Số điện thoại</label>
+           			 </div>
+           		 </div>
+           		 	<div class="col-md-4">
+        			  <div class="form-floating mb-3">
+                <input type="text" th:field="*{diaChi}" class="form-control"    id="floatingInput" required>
+                <label for="floatingInput">Địa chỉ</label>
+           			 </div>
+           		 </div>
+           		 	<div class="col-md-4">
+        			  <div class="form-floating mb-3">
+                <input type="text" th:field="*{danToc}" class="form-control"    id="floatingInput" required>
+                <label for="floatingInput">Dân tộc</label>
+           			 </div>
+           		 </div>
+        <div class="col-md-4">
+    <div class="form-floating mb-3">
+        <input type="file" class="form-control" id="anhInput" name="anh" th:field="*{anh}">
+        <label for="anhInput">Ảnh</label>
+    </div>
+</div>         		 
+        		</div>
+        		<div class="row">
+        			<div class="col-md-8">
+        				<div class="row">
+        					<div class="col-md-6">
+        						<div class="form-floating mb-3">
+                <input type="text" th:field="*{nienKhoa}" class="form-control"    id="floatingInput" required>
+                <label for="floatingInput">Niên khóa</label>
+           			 </div>
+        					</div>
+        					<div class="col-md-6">
+        						<div class="form-floating mb-3">
+                <input type="text" th:field="*{cmnd}" class="form-control"    id="floatingInput" required>
+                <label for="floatingInput">Căn cước công dân</label>
+           			 </div>
+        					</div>
+     <div class="col-md-6">
+    <div class="form-floating mb-3">
+        <select id="lopHoc" name="maLop" class="form-select" th:field="*{lop.maLop}">
+            <option value="">-- Chọn lớp --</option>
+            <option th:each="lop : ${lopList}" th:value="${lop.maLop}" th:text="${lop.maLop}" th:selected="${sinhvien.lop.maLop == lop.maLop}"></option>
+        </select>
+        <label for="lopHoc">Lớp</label>
+    </div>
+</div>
+        					<div class="col-md-6">
+        							  <div class="form-floating ">
+              <select th:field="*{role}" class="form-control" id="roleSelect">
+        <option value="admin" th:selected="${sinhvien.role == 'admin'}">Quản trị viên</option>
+        <option value="user" th:selected="${sinhvien.role == 'user'}">Sinh viên</option>
+    </select>    
+				        <label for="roleSelect">Quyền truy cập</label>
+           			 </div>
+           			 </div>
+           			  	<div class="col-md-6">
+   <div class="form-floating mb-3">
+    <select class="form-select" id="tenMH" name="tenMH" th:field="*{monHoc.tenMH}">
+     <option value="">-- Chọn môn học --</option>
+      <option th:each="monhoc : ${monhocList}" th:value="${monhoc.tenMH}" th:text="${monhoc.tenMH}"
+              th:selected="${monhoc.tenMH == sinhvien.monHoc.tenMH}"></option>
+    </select>
+    <label for="tenGV">Tên môn học</label>
+  </div>
+</div>
+           			 	<div class="col-md-6">
+          			<div class="form-check mt-3">
+				         <input class="form-check-input" type="checkbox" id="allowCheckbox" name="allow" th:field="*{allow}"
+           th:checked="${sinhvien.allow}">
+				        <label class="form-check-label fw-bold" for="allowCheckbox">Cho phép chỉnh sửa thông tin cá nhân</label>
+				    </div>
+          		</div> 
+          				<div class="col-md-6">
+        						<div class="form-floating mb-3">
+                <input type="hidden" th:field="*{pass}" class="form-control"    id="floatingInput" required>     
+           			 </div>
+        					</div>
+        					</div>
+        				
+        				</div>
+        			<div class="col-md-4">
+        					 <img width="200" height="200" alt="" th:if="${sinhvien.anh}" th:src="@{'/img/sinhvien/' + ${sinhvien.anh}}" >
+        			</div>
+        			</div>
+            <button type="submit" class="btn btn-primary mt-3 px-4 mb-4">Lưu</button>
+           <a th:href="@{/admin/listSinhVien}" class="btn btn-secondary mt-3 mb-4">Quay lại</a>  
+		</form>
+        		</div>     	
+    </div>
+	
+
+</body>
+</html>

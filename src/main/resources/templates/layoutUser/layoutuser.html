@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" th:href="@{/img/sinhvien/sinhvien.png}" type="image/png">
+<title>Thông tin sinh viên</title>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+<link rel="stylesheet"
+	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<!-- Read JS -->
+<script th:src="@{/webjars/jquery/jquery.min.js}" defer></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" defer></script>
+<link rel="shortcut icon"
+	th:href="@{/Content/AConfig/images/favicon.png}" />
+<link th:href="@{/Content/Dashboard/css/components.min.css}"
+	rel="stylesheet" />
+<link th:href="@{/Content/Dashboard/css/profile.min.css}"
+	rel="stylesheet" />
+
+<link th:href="@{/Content/ThemeMXH/css/tooltipster.bundle.css}"
+	rel="stylesheet" />
+
+<link th:href="@{/Content/kendo/2016.3.1118/kendo.common.min.css}"
+	rel="stylesheet" />
+<link th:href="@{Content/kendo/2016.3.1118/kendo.cms.min.css}"
+	rel="stylesheet" />
+
+<link rel="stylesheet" type="text/css"
+	th:href="@{/Content/ThemeMXH/css/style.css}">
+<link rel="stylesheet" type="text/css"
+	th:href="@{/Content/ThemeMXH/css/base.css}">
+<link rel="stylesheet" type="text/css"
+	th:href="@{/Content/ThemeMXH/css/responsive.css}">
+<link rel="stylesheet" type="text/css"
+	th:href="@{/Content/ThemeMXH/css/chat.css}">
+<link rel="stylesheet" type="text/css"
+	th:href="@{/Content/ThemeMXH/css/switch.css}" />
+<script type="text/javascript"
+	th:src="@{/Content/ThemeMXH/js/jquery-3.4.1.min.js}"></script>
+
+<link th:href="@{/Content/ThemeMXH/css/jquery-confirm.min.css}"
+	rel="stylesheet" />
+<script th:src="@{/js/index.js}"></script>
+<link th:href="@{/css/sinhvien/index.css}"
+	rel="stylesheet" />
+</head>
+<body class="bg-light">
+	<!-- Header -->
+	<div layout:replace="~{layoutUser/headeruser::header}"></div>
+	<div class="main-content">
+		<div class="container w-75 shadow"  id="full-resize-table">
+			<div class="main-section-content" id="contnet">
+				<div class="row">
+				<!-- Menu --> 
+					<div class="col-md-2 hidden-xs">
+						<div layout:replace="~{layoutUser/menu::menu}"></div>
+					</div>
+					<!-- Content --> 
+					<div class="col-md-10 col-xs-12" >
+					<div layout:fragment="content"></div>
+										</div>
+				</div>
+			</div>
+		</div>
+	</div>		
+	<div class="container-fluid">
+		<div class="row">
+			<nav class="col-sm-2 sidebar pt-2">
+				
+			</nav>
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-10 offset-sm-2 main">
+				
+			</div>
+		</div>
+	</div>
+
+</body>
+<script type="text/javascript"
+	th:src="@{/Content/ThemeMXH/js/bootstrap.min.js}" defer></script>
+<script type="text/javascript"
+	th:src="@{/Content/ThemeMXH/js/jquery.nicescroll.min.js}" defer></script>
+<script th:src="@{/Content/ThemeMXH/js/tooltipster.bundle.min.js}" defer></script>
+<script type="text/javascript" th:src="@{/Content/ThemeMXH/js/main.js}"
+	defer></script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layoutAdmin/layout}">
+<head>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+<link rel="stylesheet" type="text/css" 
+	th:href="@{/css/admin/index.css}" />
+	
+</head>
+<body>
+	<div layout:fragment="content">
+	<div></div>
+		<div class="container shadow mt-4">
+		<form  th:action="@{/monhoc/edit}" th:object="${monhoc}" method="post">
+        <h4 class="text-info"> Chỉnh sửa thông tin Môn Học</h4>
+        	<div class="form-group">
+                <label for="name"></label>
+                <input type="hidden" th:field="*{id}" class="form-control"  required>
+            </div>               			
+            <div class="form-floating mb-3">
+                <input type="text" th:field="*{maMH}" class="form-control"    id="floatingInput" required>
+                <label for="floatingInput">Mã môn học</label>
+            </div>
+           <div class="form-floating mb-3">
+                <input type="text" th:field="*{tenMH}" class="form-control"    id="floatingInput" required>
+                <label for="floatingInput">Tên môn học</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="number" th:field="*{soGio}" class="form-control"    id="floatingInput" required>
+                <label for="floatingInput">Số giờ</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-3 px-4 mb-4">Lưu</button>
+            <a th:href="@{/admin/listMonHoc}" class="btn btn-secondary mt-3 mb-4">Quay lại</a>
+    
+		</form>
+    </div>
+	</div>
+
+</body>
+</html>

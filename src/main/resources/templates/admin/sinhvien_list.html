@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layoutAdmin/layout}">
+<head>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+	<title>Danh sách sinh viên</title>
+	<link rel="icon" th:href="@{/img/sinhvien/admin.png}" type="image/png">
+<script th:src="@{/js/index.js}"></script>
+</head>
+<body>
+	<div layout:fragment="content" >
+		<div class="container">
+			<div class="header">
+				<div class="bg-white mt-3">
+					<b class="text-decoration-underline">Danh sách sinh viên</b>
+				</div>
+			</div>
+			<div class="card card-info mt-3">
+				<div class="card-heard bg-info bg-gradient p-2">
+					<a href="#" class="btn btn-success" data-toggle="modal" data-target="#addModal">Thêm sinh viên</a>
+				</div>
+			
+
+				<form th:action="@{admin/listSinhVien}" method="post"
+					class="form-horizontal">
+					<div class="card-body">
+						<table class="table table-striped table-responsive-md">
+							<thead>
+								<tr>
+									<th>No</th>
+									<th>Mã sinh viên</th>
+									<th>Tên Sinh Viên</th>
+									<th>Giới tính</th>
+									<th>Ngày Sinh</th>
+									<th>Ảnh</th>
+									<th>Địa chỉ</th>
+									<th>Chức năng</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="item, state:${sinhvienList}">
+									<td th:text="${state.count}"></td>
+									<td th:text="${item.maSV}"></td>
+									<td th:text="${item.tenSV}"></td>
+									<td th:text="${item.gioiTinh}"></td>
+									<td th:text="${#dates.format(item.ngaySinh,'dd/MM/yyyy')}"></td>
+									<td ><img width="50" height="50" th:src="@{/img/sinhvien/} + ${item.anh}" /></td>
+									<td th:text="${item.diaChi}"></td>	
+									<td>
+										<a th:href="@{'/sinhvien/delete?id=' + ${item.id}}" class="btn btn-danger"><i class="bi bi-trash3-fill"></i></a>
+										<a th:href="@{'/sinhvien/edit?id=' + ${item.id}}" class="btn btn-secondary"> <i class="bi bi-pencil-fill"></i></a>
+									</td>															
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</form>
+			</div>
+		</div>
+		<!--   modal add-->
+		<!---->  
+		<div class="modal fade" id="addModal" tabindex="-1"  role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="max-width: 80%;" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-info">
+        <h5 class="modal-title text-white" id="addModalLabel">Thêm Sinh Viên</h5>
+      </div>
+        <form th:action="@{/sinhvien/add}" method="post">
+      <div class="modal-body">
+          	<div class="row">
+          		<div class="col-md-4">
+          			<div class="form-floating mb-3">
+					  <input type="text" class="form-control" name="maSV" id="floatingInput"  placeholder="name@example.com">
+					  <label for="floatingInput">Mã sinh viên</label>
+					</div>
+          		</div>
+          		<div class="col-md-4">
+          			<div class="form-floating mb-3">
+					  <input type="text" class="form-control" name="tenSV" id="floatingInput"  placeholder="name@example.com">
+					  <label for="floatingInput">Tên sinh viên</label>
+					</div>
+          		</div>
+          		<div class="col-md-4">
+				    <div class="form-floating mb-3">
+				        <select class="form-select" name="gioiTinh"  id="gioiTinhSelect">
+				        	<option >--Chọn giới tính--</option>
+				            <option value="Nam">Nam</option>
+				            <option value="Nữ">Nữ</option>
+				        </select>
+				        <label for="gioiTinhSelect">Giới tính</label>
+				    </div>
+				</div>
+          		<div class="col-md-4">
+          			<div class="form-floating mb-3">
+					  <input type="text" class="form-control"  name="ngaySinh" id="myDateInput" placeholder="name@example.com">
+					  <label for="floatingInput">Ngày sinh (D/M/Y)</label>
+					</div>
+          		</div>
+          			<div class="col-md-4">
+          			<div class="form-floating mb-3">
+					  <input type="email" name="email" class="form-control"  id="floatingInput" placeholder="name@example.com">
+					  <label for="floatingInput">Email</label>
+					</div>
+          		</div>
+          		<div class="col-md-4">
+          			<div class="form-floating mb-3">
+					  <input type="number" class="form-control"  name="soDienthoai" id="floatingInput" placeholder="name@example.com">
+					  <label for="floatingInput">Số điện thoại</label>
+					</div>
+          		</div>
+          		<div class="col-md-4">
+          			<div class="form-floating mb-3">
+					  <textarea rows="4" class="form-control"  name="diaChi" id="floatingInput" placeholder="name@example.com"></textarea>
+					  <label for="floatingInput">Địa chỉ</label>
+					</div>
+          		</div>
+          		<div class="col-md-4">
+          			<div class="form-floating mb-3">
+					  <input type="text" class="form-control"  name="danToc" id="floatingInput" placeholder="name@example.com">
+					  <label for="floatingInput">Dân tộc</label>
+					</div>
+          		</div>
+          		<div class="col-md-4">
+					  <div class="form-floating mb-3">
+					    <input type="file" class="form-control" name="anh" id="imageInput">
+					    <label for="imageInput">Ảnh</label>
+					  </div>
+					</div>
+          		</div>
+          		<div class="row">
+          			<div class="col-md-8">
+          				<div class="row">
+          						<div class="col-md-6">
+				          			<div class="form-floating mb-3">
+									  <input type="text" class="form-control" name="nienKhoa"  id="floatingInput" placeholder="name@example.com">
+									  <label for="floatingInput">Niên Khóa</label>
+									</div>
+          						</div>
+          						<div class="col-md-6">
+			          			<div class="form-floating mb-3">
+								  <input type="number" name="cmnd" class="form-control"  id="floatingInput" placeholder="name@example.com">
+								  <label for="floatingInput">Căn cước công dân</label>
+								</div>
+			          		</div>
+						<div class="col-md-6">
+					    <div class="form-floating mb-3">
+					        <select id="lopHoc" name="maLop"  class="form-select">
+					            <option value="">-- Chọn lớp --</option>
+					            <option th:each="lop : ${lopList}" th:value="${lop.maLop}" th:text="${lop.maLop}"></option>
+					        </select>
+					        <label for="lopHoc">Lớp</label>
+					    </div>
+					</div>
+			          		<div class="col-md-6">
+				    <div class="form-floating mb-3">
+				        <select class="form-select"  name="role" id="gioiTinhSelect">
+				        	<option>--Chọn quyền--</option>
+				            <option value="admin">Quản trị viên</option>
+				            <option value="user">Người dùng</option>
+				        </select>
+				        <label for="gioiTinhSelect">Vai Trò</label>
+				    </div>
+				</div>
+				<div class="col-md-6">
+          			<div class="form-floating mb-3">
+					  <input type="text" name="pass" required="required" class="form-control" id="floatingInput" placeholder="name@example.com">
+					  <label for="floatingInput">Cung cấp mật khẩu để vào trang</label>
+					</div>
+          		</div>
+          		<div class="col-md-6">
+          		  <div class="form-floating mb-3">
+        <select class="form-select" name="tenMH" id="khoaSelect">
+            <option value="">--Chọn môn học--</option>
+            <option th:each="monhoc : ${monhocList}" th:value="${monhoc.tenMH}" th:text="${monhoc.tenMH}"></option>
+        </select>
+        <label for="khoaSelect">Môn học</label>
+    </div>          		
+          		</div>
+          		<div class="col-md-6 mt-3">
+          			<div class="form-check">
+				        <input class="form-check-input" type="checkbox" id="allowCheckbox" name="allow">
+				        <label class="form-check-label fw-bold" for="allowCheckbox">Cho phép chỉnh sửa thông tin cá nhân</label>
+				    </div>
+          		</div> 
+          	     		
+          				</div>
+          			</div>
+
+          			<div class="col-md-4">
+          				<img class="text-center" id="previewImage" src="/img/sinhvien/person.png" width="200px" height="150px" />
+          			</div>
+          		</div>        	         		         		         	 	         	
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary px-3" data-dismiss="modal">Đóng</button>
+        <button type="submit" class="btn btn-primary px-4">Lưu</button>
+      </div>
+       </form>
+    </div>
+  </div>
+</div>
+
+
+
+	</div>
+</body>
+
+	
+</html>

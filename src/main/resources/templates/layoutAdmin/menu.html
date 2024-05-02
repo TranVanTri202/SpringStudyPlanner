@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/layout}">
+<head>
+</head>
+
+<body class="bg-white">
+	<div layout:fragment="menu" class="bg-white" >
+
+		<ul class="nav nav-pills nav-stacked flex-column" >
+			<li role="presentation">
+				<div class="nav-link text-white">
+					<div class="user-wrapper row">
+						<div class="main-left">
+							
+						</div>
+					
+					</div>
+				</div>
+			</li>
+			<li class="fs-5"><a class="nav-link text-black text-opacity-75"
+				th:href="@{/sinhvien/adminhome}"><i class="fas fa-home"></i> Trang chủ</a></li>
+			<li class="fs-5 mt-2"><a class="nav-link text-black text-opacity-75"
+				th:href="@{/admin/listKhoa}"><i class="fas fa-university"></i> Khoa</a></li>
+			<li class="fs-5 mt-2"><a class="nav-link text-black text-opacity-75"
+				th:href="@{/admin/listLop}"><i class="fas fa-th-large"></i> Lớp</a></li>
+			<li class="fs-5 mt-2" role="presentation"><a
+				class="nav-link text-black text-opacity-75" th:href="@{/admin/listMonHoc}">
+					<i class="bi bi-book-half"></i> Môn học
+			</a></li>
+			<li class="fs-5 mt-2" role="presentation"><a
+				class="nav-link text-black text-opacity-75" th:href="@{/admin/listSinhVien}">
+					<i class="fas fa-graduation-cap"></i> Sinh Viên
+			</a></li>
+			<li class="fs-5 mt-2"><a class="nav-link text-black text-opacity-75"
+				th:href="@{/admin/listGiaoVien}"><i class="bi bi-person-lines-fill me-2"></i>Giáo viên</a></li>
+			<li class="fs-5 mt-2"><a class="nav-link text-black text-opacity-75"
+				th:href="@{/admin/listThoikhoabieu}"><i class="bi bi-calendar-date-fill"></i> Thời khóa biểu</a></li>
+		
+		
+		</ul>
+	</div>
+</body>
+</html>

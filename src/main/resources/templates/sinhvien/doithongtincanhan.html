@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.w3.org/1999/xhtml"
+	layout:decorate="~{layoutUser/layoutuser}">
+<head>
+
+<title>Thay đổi thông tin </title>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+<body>
+	<div class="box-df" layout:fragment="content">
+			<div class="panel-heading">
+					<h2 class="text-center fs-5">Thay đổi thông tin cá nhân</h2>
+			</div>
+			<div class="row mt-4 shadow">
+				<form th:action="@{/sinhvien/doithongtin}" method="post" th:object="${sinhVien}">
+					 	<div class="row">
+        	<input th:field="*{id}" type="hidden">
+        		<div class="col-md-6">
+        			  <div class="form-floating mb-3">
+                <input type="text" th:field="*{maSV}" class="form-control rounded-2" readonly="readonly"    id="floatingInput" required>
+                <label for="floatingInput">Mã sinh viên</label>
+           			 </div>
+           		 </div>
+           		 	<div class="col-md-6">
+        			  <div class="form-floating mb-3">
+                <input type="text" th:field="*{tenSV}" class="form-control"    id="floatingInput" required>
+                <label for="floatingInput">Tên sinh viên</label>
+           			 </div>
+           		 </div>
+           		 	
+           		 	<div class="col-md-6">
+        			  <div class="form-floating mb-3">
+                <input type="text" th:field="*{ngaySinh}" class="form-control"    id="floatingInput" required>
+                <label for="floatingInput">Ngày sinh (D/M/Y)</label>
+           			 </div>
+           		 </div>
+           		 	<div class="col-md-6">
+        			  <div class="form-floating mb-3">
+                <input type="email" th:field="*{email}" class="form-control"    id="floatingInput" required>
+                <label for="floatingInput">Email</label>
+           			 </div>
+           		 </div>
+           		 	<div class="col-md-6">
+        			  <div class="form-floating mb-3">
+                <input type="text" th:field="*{soDienthoai}" class="form-control"    id="floatingInput" required>
+                <label for="floatingInput">Số điện thoại</label>
+           			 </div>
+           		 </div>
+           		 	<div class="col-md-6">
+        			  <div class="form-floating mb-3">
+                <input type="text" th:field="*{diaChi}" class="form-control"    id="floatingInput" required>
+                <label for="floatingInput">Địa chỉ</label>
+           			 </div>
+           		 </div>
+           		 <div class="col-md-6">
+    <div class="form-floating mb-3">
+        <select th:field="*{gioiTinh}" class="form-control" id="gioiTinhSelect" name="gioiTinh">
+            <option value="Nam" th:attr="selected=${sinhVien.gioiTinh == 'Nam'}">Nam</option>
+            <option value="Nữ" th:attr="selected=${sinhVien.gioiTinh == 'Nữ'}">Nữ</option>
+        </select>
+        <label for="gioiTinhSelect">Giới Tính</label>
+    </div>
+</div>
+           		 	<div class="col-md-6">
+        			  <div class="form-floating mb-3">
+                <input type="text" th:field="*{danToc}" class="form-control"    id="floatingInput" required>
+                <label for="floatingInput">Dân tộc</label>
+           			 </div>
+           		 </div>
+     			<div class="col-md-6">
+        				 	 <div class="form-floating mb-3">
+                <input type="text" th:field="*{cmnd}" class="form-control"    id="floatingInput" required>
+                <label for="floatingInput">Căn cước công dân</label>
+        			</div>
+        		</div>
+        <div class="col-md-6">
+    <div class="form-floating mb-3">
+        <th:block th:if="${sinhVien.anh}">
+            <input type="file" class="form-control" id="anhInput" name="anh" th:attr="value=${sinhVien.anh}">
+        </th:block>
+        <th:block th:unless="${sinhVien.anh}">
+            <input type="file" class="form-control" id="anhInput" name="anh">
+        </th:block>
+        <label for="anhInput">Ảnh</label>
+        <span th:if="${sinhVien.anh}">Ảnh hiện tại: <span th:text="${sinhVien.anh}"></span></span>
+    </div>
+</div>	 
+   </div>
+    <button type="submit" class="btn btn-primary mb-4">Lưu thông tin</button>
+    <a  th:href="@{/sinhvien/home}"  class="btn btn-secondary mb-4">Quay lại</a>
+</form>
+			</div>	
+	</div>
+</body>
+</html>

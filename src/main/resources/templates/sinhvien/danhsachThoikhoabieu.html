@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.w3.org/1999/xhtml"
+	layout:decorate="~{layoutUser/layoutuser}">
+<head>
+<title>Thời khóa biểu</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/sinhvien/index.css}" />
+	
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+<body>
+	<div class="box-df" layout:fragment="content">
+		<div class="container">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h2 class="text-center fs-5">Thời khóa biểu</h2>
+				</div>
+			<table class="table table-border mt-3 mb-5 table-striped table-bordered" border="1">
+    <thead class="table-warning">
+        <tr class="text-center">					
+            <th>Thứ 2</th>
+            <th>Thứ 3</th>
+            <th>Thứ 4</th>
+            <th>Thứ 5</th>
+            <th>Thứ 6</th>
+            <th>Thứ 7</th>										
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <table class="bde">
+                    <tbody >
+                        <tr th:each="item : ${tkbList.?[thu == 'Thứ 2' ]}">
+                            <td class="text-center">
+                            	<b class="text-danger text-center" th:text="${item.monHoc.tenMH}"></b> </br>
+                            	<span>Giờ bắt đầu: <span th:text="${item.gioBatDau}"></span></span> <br/>
+                            	<span>Giờ kết thúc: <span th:text="${item.gioKetThuc}"></span></span> <br/>
+                            	<span>Giáo viên: <span class="text-primary" th:text="${item.giaoVien.tenGV}"></span></span> <br/>
+                            	<br/>
+                            </td>
+                           
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <tbody>
+                        <tr th:each="item : ${tkbList.?[thu == 'Thứ 3']}">
+                           <td class="text-center">
+                            	<b class="text-danger text-center" th:text="${item.monHoc.tenMH}"></b> </br>
+                            	<span>Giờ bắt đầu: <span th:text="${item.gioBatDau}"></span></span> <br/>
+                            	<span>Giờ kết thúc: <span th:text="${item.gioKetThuc}"></span></span> <br/>
+                            	<span>Giáo viên: <span class="text-primary" th:text="${item.giaoVien.tenGV}"></span></span> <br/>
+                            	<br/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <tbody>
+                        <tr th:each="item : ${tkbList.?[thu == 'Thứ 4']}">
+                            <td class="text-center">
+                            	<b class="text-danger text-center" th:text="${item.monHoc.tenMH}"></b> </br>
+                            	<span>Giờ bắt đầu: <span th:text="${item.gioBatDau}"></span></span> <br/>
+                            	<span>Giờ kết thúc: <span th:text="${item.gioKetThuc}"></span></span> <br/>
+                            	<span>Giáo viên: <span class="text-primary" th:text="${item.giaoVien.tenGV}"></span></span> <br/>
+                            	<br/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <tbody>
+                        <tr th:each="item : ${tkbList.?[thu == 'Thứ 5']}">
+                           <td class="text-center">
+                            	<b class="text-danger text-center" th:text="${item.monHoc.tenMH}"></b> </br>
+                            	<span>Giờ bắt đầu: <span th:text="${item.gioBatDau}"></span></span> <br/>
+                            	<span>Giờ kết thúc: <span th:text="${item.gioKetThuc}"></span></span> <br/>
+                            	<span>Giáo viên: <span class="text-primary" th:text="${item.giaoVien.tenGV}"></span></span> <br/>
+                            	<br/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <tbody>
+                        <tr th:each="item : ${tkbList.?[thu == 'Thứ 6']}">
+                           <td class="text-center">
+                            	<b class="text-danger text-center" th:text="${item.monHoc.tenMH}"></b> </br>
+                            	<span>Giờ bắt đầu: <span th:text="${item.gioBatDau}"></span></span> <br/>
+                            	<span>Giờ kết thúc: <span th:text="${item.gioKetThuc}"></span></span> <br/>
+                            	<span>Giáo viên: <span class="text-primary" th:text="${item.giaoVien.tenGV}"></span></span> <br/>
+                            	<br/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <tbody>
+                        <tr th:each="item : ${tkbList.?[thu == 'Thứ 7']}">
+                            <td class="text-center">
+                            	<b class="text-danger text-center" th:text="${item.monHoc.tenMH}"></b> </br>
+                            	<span>Giờ bắt đầu: <span th:text="${item.gioBatDau}"></span></span> <br/>
+                            	<span>Giờ kết thúc: <span th:text="${item.gioKetThuc}"></span></span> <br/>
+                            	<span>Giáo viên: <span class="text-primary" th:text="${item.giaoVien.tenGV}"></span></span> <br/>
+                            	<br/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

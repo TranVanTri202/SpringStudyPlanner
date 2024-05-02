@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layoutAdmin/layout}">
+<head>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+<link rel="stylesheet" type="text/css" 
+	th:href="@{/css/admin/index.css}" />
+		<title>Chỉnh sửa thông tin</title>
+</head>
+<body>
+	<div layout:fragment="content">
+	<div></div>
+		<div class="container shadow mt-4">
+		<form  th:action="@{/khoa/edit}" th:object="${khoa}" method="post">
+        <h4 class="text-info"> Chỉnh sửa thông tin Khoa</h4>
+        	<div class="form-group">
+                <label for="name"></label>
+                <input type="hidden" th:field="*{id}" class="form-control"  required>
+            </div>               			
+            <div class="form-floating mb-3">
+                <input type="text" th:field="*{maKhoa}" class="form-control"    id="floatingInput" required>
+                <label for="floatingInput">Mã khoa</label>
+            </div>
+           <div class="form-floating mb-3">
+                <input type="text" th:field="*{tenKhoa}" class="form-control"    id="floatingInput" required>
+                <label for="floatingInput">Tên khoa</label>
+            </div>
+         
+
+            <button type="submit" class="btn btn-primary mt-3 px-4 mb-4">Lưu</button>
+            <a th:href="@{/admin/listKhoa}" class="btn btn-secondary mt-3 mb-4">Quay lại</a>
+    
+		</form>
+    </div>
+	</div>
+
+</body>
+</html>

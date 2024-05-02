@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layoutAdmin/layout}">
+<head>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+<link rel="stylesheet" type="text/css" 
+	th:href="@{/css/admin/index.css}" />
+	<link rel="icon" th:href="@{/img/sinhvien/admin.png}" type="image/png">
+	<title>Chỉnh sửa thông tin</title>
+</head>
+<body>
+	<div layout:fragment="content">
+	<div></div>
+		<div class="container shadow mt-4">
+		<form  th:action="@{/giaovien/edit}" th:object="${giaovien}" method="post">
+        <h4 class="text-info"> Chỉnh sửa thông tin giáo viên</h4>
+        	<div class="form-group">
+                <label for="name"></label>
+                <input type="hidden" th:field="*{id}" class="form-control"  required>
+            </div>               	
+            <div class="row">
+            		<div class="col-md-6">
+            		   <div class="form-floating mb-3">
+                <input type="text" th:field="*{maGV}" class="form-control"    id="floatingInput" required>
+                <label for="floatingInput">Mã giáo viên</label>
+            </div>
+            		</div>
+            		<div class="col-md-6">
+            		  <div class="form-floating mb-3">
+                <input type="text" th:field="*{tenGV}" class="form-control"    id="floatingInput" required>
+                <label for="floatingInput">Tên giáo viên</label>
+            </div>
+            		</div>
+            		<div class="col-md-6">
+            		  <div class="form-floating mb-3">
+                <input type="text" th:field="*{chuyenNghanh}" class="form-control"    id="floatingInput" required>
+                <label for="floatingInput">Chuyên Nghành</label>
+            </div>
+            		</div>
+            		<div class="col-md-6">
+            		 <div class="form-floating mb-3">
+           
+      <select th:field="*{gioiTinh}" class="form-control" id="gioiTinhSelect" name="gioitinh">
+        <option value="Nam" th:selected="${giaovien.gioiTinh == 'Nam'}">Nam</option>
+        <option value="Nữ" th:selected="${giaovien.gioiTinh == 'Nữ'}">Nữ</option>
+    </select>    
+				        <label for="gioiTinhSelect">Giới Tính</label>
+            </div>
+            		</div>
+            		<div class="col-md-6">
+            		  <div class="form-floating mb-3">
+                <textarea rows="4" th:field="*{diaChi}" class="form-control"    id="floatingInput" required></textarea>
+                <label for="floatingInput">Địa chỉ</label>
+            </div>
+            		</div>
+            		<div class="col-md-6">
+            	<div class="form-floating mb-3">
+    <select class="form-select" id="makhoa" name="makhoa" th:field="*{khoa.maKhoa}">
+        <option th:each="khoa : ${khoaList}" th:value="${khoa.maKhoa}" th:text="${khoa.tenKhoa}"
+                th:selected="${khoa.tenKhoa == giaovien.khoa.tenKhoa}"></option>
+    </select>
+    <label for="makhoa">Tên khoa</label>
+</div>
+            		</div>
+            </div>		
+         
+            <button type="submit" class="btn btn-primary mt-3 px-4 mb-4">Lưu</button>
+            <a th:href="@{/admin/listGiaoVien}" class="btn btn-secondary mt-3 mb-4">Quay lại</a>
+    
+		</form>
+    </div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layoutUser/layoutuser}">
+<head>
+</head>
+
+<body >
+
+			<div layout:fragment="menu"> 
+						<div class="box-df p-0" >
+							<div id="accordion-menu" class="accordion-menu">
+								<ul>
+									<li><a title=""><i
+											class="fas fa-home"></i></i>TRANG CHỦ</a></li>
+									<li>
+										<ul class="submenu" style="display: block">
+											<li ><a th:href="@{/sinhvien/home}"><span
+													lang="menusinhvien-1">Thông tin cá nhân</span></a></li>
+										</ul>
+										<ul class="submenu" style="display: block">
+											<li><a th:href="@{/sinhvien/danhsachGV}"
+											><span
+													lang="menusinhvien-2">Danh sách giáo viên </span></a></li>
+										</ul>
+										<ul class="submenu" style="display: block">
+											<li><a th:href="@{/sinhvien/danhsachMH}"><span
+													lang="menusinhvien-4">Danh sách môn học  </span></a></li>
+										</ul>
+										<ul class="submenu" style="display: block">
+											<li ><a th:href="@{/sinhvien/thoikhoabieu}" ><span
+													lang="menusinhvien-6">Thời khóa biểu tổng</span></a></li>
+										</ul>
+										<ul class="submenu" style="display: block">
+											<li ><a th:href="@{/sinhvien/thoikhoabieuCanhan}" ><span
+													lang="menusinhvien-6">Thời khóa biểu cá nhân</span></a></li>
+										</ul>
+										<ul class="submenu" style="display: block">
+
+										
+										<ul class="submenu" style="display: block">
+											<li ><a th:href="@{/sinhvien/doimatkhau}"
+												><span
+													lang="menusinhvien-1088">Đổi mật khẩu</span></a></li>
+										</ul></li>
+													
+								</ul>
+							</div>
+						</div>
+			</div>
+		
+</body>
+</html>

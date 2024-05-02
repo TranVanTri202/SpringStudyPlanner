@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.w3.org/1999/xhtml"
+	layout:decorate="~{layoutUser/layoutuser}">
+<head>
+<title>Danh sách môn học</title>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+<body>
+	<div class="box-df" layout:fragment="content">
+		<div class="container">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h2 class="text-center fs-5">Tổng môn học hiện tại</h2>
+				</div>
+				<table class="table table-border   mt-3 mb-5 table-striped" border="1">
+					<thead class="table-warning">
+						<tr>
+						
+							<th>Tên môn học</th>
+							<th>Mã môn học</th>
+							<th>Số giờ học</th>
+						</tr>
+					</thead>
+					<tbody class="">
+						<tr th:each="item, state:${listmh}">
+								<td th:text="${item.tenMH}"></td>
+							    <td th:text="${item.maMH}"></td>						
+							    <td th:text="${item.soGio}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

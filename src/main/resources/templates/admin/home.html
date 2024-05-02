@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layoutAdmin/layout}">
+<head>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+	<link rel="stylesheet" th:href="@{/css/admin/index.css}">
+	<link rel="icon" th:href="@{/img/sinhvien/admin.png}" type="image/png">
+	<title>Home</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="body">
+			<div class="container mt-4">
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="card mb-3">
+							<div class="row g-0 boxx">
+								<div class="col-md-6 text-center text-white py-3">
+									<h1 class="text-info" th:text="${sinhvienList.size()}"></h1>
+									<p class="text-dark">Sinh viên</p>
+								</div>
+								<div class="col-md-6 py-3 text-center">
+									<i class="bi bi-people-fill text-info display-2"></i>
+								</div>
+								<div class="card-footer bg-info text-center">
+									<a href="#" class="text-black">xem thêm <i
+										class="fas fa-arrow-circle-right"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="card mb-3">
+							<div class="row g-0 boxx">
+								<div class="col-md-6 text-center text-white py-3">
+									<h1 class="text-danger" th:text="${giaovienList.size()}" ></h1>
+									<p class="text-danger">Giáo viên</p>
+								</div>
+								<div class="col-md-6 py-3 text-center">
+							<i class="bi bi-person-rolodex text-danger display-2"></i>
+								</div>
+								<div class="card-footer bg-danger text-center">
+									<a href="#" class="text-black">xem thêm <i
+										class="fas fa-arrow-circle-right"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+						<div class="col-sm-4">
+						<div class="card mb-3">
+							<div class="row g-0 boxx">
+								<div class="col-md-6 text-center text-white py-3">
+									<h1 th:text="${khoaList.size()}" class="text-warning"></h1>
+									<p class="text-warning">Khoa</p>
+								</div>
+								<div class="col-md-6 py-3 text-center">
+									<i class="bi bi-file-earmark-text-fill text-warning display-2"></i>
+								</div>
+								<div class="card-footer bg-warning text-center">
+									<a href="#" class="text-black">xem thêm <i
+										class="fas fa-arrow-circle-right"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="card mb-3">
+							<div class="row g-0 boxx">
+								<div class="col-md-6 text-center text-white py-3">
+									<h1 th:text="${lopList.size()}" class="text-success"></h1>
+									<p class="text-success">Lớp</p>
+								</div>
+								<div class="col-md-6 py-3 text-center">
+									<i class="bi bi-hospital-fill text-success display-2"></i>
+								</div>
+								<div class="card-footer bg-success text-center">
+									<a href="#" class="text-black">xem thêm <i
+										class="fas fa-arrow-circle-right"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="card mb-3">
+							<div class="row g-0 boxx">
+								<div class="col-md-6 text-center text-white py-3">
+									<h1 class="text-primary" th:text="${monhocList.size()}"></h1>
+									<p class="text-primary">Môn học</p>
+								</div>
+								<div class="col-md-6 py-3 text-center">
+									<i class="bi bi-book-half display-2 text-primary"></i>
+								</div>
+								<div class="card-footer bg-primary text-center">
+									<a href="#" class="text-black">xem thêm <i
+										class="fas fa-arrow-circle-right"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.w3.org/1999/xhtml"
+	layout:decorate="~{layoutUser/layoutuser}">
+<head>
+<title>Danh sách giáo viên</title>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+<body>
+	<div class="box-df" layout:fragment="content">
+		<div class="container">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h2 class="text-center fs-5">Các giáo viên của trường</h2>
+				</div>
+				<table class="table table-border  shadow mt-3 mb-5 table-striped" border="1">
+					<thead class="table-warning">
+						<tr>
+						
+							<th>Tên giáo viên</th>
+							<th>Khoa dạy</th>
+						</tr>
+					</thead>
+					<tbody class="">
+						<tr th:each="item, state:${listgv}">
+								
+								<td th:text="${item.tenGV}"></td>
+							    <td th:text="${item.khoa.tenKhoa}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layoutAdmin/layout}">
+<head>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+<link rel="stylesheet" type="text/css" 
+	th:href="@{/css/admin/index.css}" />
+		<title>Chỉnh sửa thông tin</title>
+		<link rel="icon" th:href="@{/img/sinhvien/admin.png}" type="image/png">
+</head>
+<body>
+	<div layout:fragment="content">
+	<div></div>
+		<div class="container shadow mt-4">
+		<form  th:action="@{/tkb/edit}" th:object="${tkb}" method="post">
+        <h4 class="text-info"> Chỉnh sửa thông tin Thời khóa biểu</h4>
+        <div class="row">
+        			<div class="form-group">
+                <label for="name"></label>
+                <input type="hidden" th:field="*{id}" class="form-control"  required>
+            </div> 
+        	<div class="col-md-6">
+        	 <div class="form-floating mb-3">
+                <input type="text" th:field="*{phong}" class="form-control"    id="floatingInput" required>
+                <label for="floatingInput">Phòng</label>
+            </div>
+        	</div>
+        	<div class="col-md-6">
+        		 <div class="form-floating mb-3">
+                	<select class="form-select" th:field="*{thu}">
+                		<option value="Thứ 2" th:selected="${thu == 'Thứ 2'}">Thứ 2</option>
+                		<option value="Thứ 3" th:selected="${thu == 'Thứ 3'}">Thứ 3</option>
+                		<option value="Thứ 4" th:selected="${thu == 'Thứ 4'}">Thứ 4</option>
+                		<option value="Thứ 5" th:selected="${thu == 'Thứ 5'}">Thứ 5</option>
+                		<option value="Thứ 6" th:selected="${thu == 'Thứ 6'}">Thứ 6</option>
+                		<option value="Thứ 7" th:selected="${thu == 'Thứ 7'}">Thứ 7</option>
+                	</select>
+                <label for="floatingInput">Thứ</label>
+            </div>
+        	</div>
+        	<div class="col-md-6">
+        		<div class="form-floating mb-3">
+                <input type="text" th:field="*{gioBatDau}" class="form-control"    id="floatingInput" required>
+                <label for="floatingInput">Giờ bắt đầu</label>
+            </div>
+        	</div>
+        	<div class="col-md-6">
+        		<div class="form-floating mb-3">
+                <input type="text" th:field="*{gioKetThuc}" class="form-control"    id="floatingInput" required>
+                <label for="floatingInput">Giờ kết thúc</label>
+            </div>
+        	</div>
+        	<div class="col-md-6">
+  <div class="form-floating mb-3">
+    <select class="form-select" id="tenGV" name="tenGV" th:field="*{giaoVien.tenGV}">
+      <option th:each="giaovien : ${giaovienList}" th:value="${giaovien.tenGV}" th:text="${giaovien.tenGV}"
+              th:selected="${giaovien.tenGV == tkb.giaoVien.tenGV}"></option>
+    </select>
+    <label for="tenGV">Tên giáo viên</label>
+  </div>
+</div>
+        	 	<div class="col-md-6">
+  <div class="form-floating mb-3">
+    <select class="form-select" id="tenMH" name="tenMH" th:field="*{monHoc.tenMH}">
+      <option th:each="monhoc : ${monhocList}" th:value="${monhoc.tenMH}" th:text="${monhoc.tenMH}"
+              th:selected="${monhoc.tenMH == tkb.monHoc.tenMH}"></option>
+    </select>
+    <label for="tenGV">Tên môn học</label>
+  </div>
+</div>
+        </div>
+        	              			
+           
+          
+         
+
+            <button type="submit" class="btn btn-primary mt-3 px-4 mb-4">Lưu</button>
+            <a th:href="@{/admin/listThoikhoabieu}" class="btn btn-secondary mt-3 mb-4">Quay lại</a>
+    
+		</form>
+    </div>
+	</div>
+
+</body>
+</html>
